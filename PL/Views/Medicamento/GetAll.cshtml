@@ -1,0 +1,52 @@
+﻿@model ML.Medicamento
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAll</h1>
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Add","Form","Medicamento",htmlAttributes: new {@class="btn btn-success"})
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Editar</th>
+                <th>IdMedicamento</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Fecha de Caducdidad</th>
+                <th>PrecioUnitario</th>
+                <th>Stock</th>
+                <th>IdProveedor</th>
+                <th>Proveedores</th>
+                <th> DElete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (ML.Medicamento medicamento in Model.Medicamentos)
+            {
+                <tr>
+                    <td class=""></td>
+                    <td> @medicamento.IdMedicamento</td>
+                    <td> @medicamento.Nombre</td>
+                    <td> @medicamento.Descripcion</td>
+                    <td> @medicamento.fechaCaducidad</td>
+                    <td> @medicamento.PrecioUnitario</td>
+                    <td> @medicamento.Stock</td>
+                    <td> @medicamento.Proveedor.IdProveedor</td>
+                    <td> @medicamento.Proveedor.Nombre</td>
+                    <td> </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
